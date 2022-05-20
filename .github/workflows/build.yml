@@ -21,7 +21,7 @@ jobs:
         with:
           tag_name: ${{ steps.time.outputs.time }}
           body_path: README.md
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.workflow_token }}
           target_commitish: main
           draft: false
     outputs:
@@ -44,7 +44,7 @@ jobs:
           board: ${{ matrix.BOARD }}
           flavor: ${{ matrix.FLAVOR }}
           release-id: ${{ needs.prepare_release.outputs.release_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.workflow_token }}
       - name: Upload debos-radxa image
         uses: radxa/debos-build-action@main
         if: matrix.DISTRO == 'debos'
@@ -52,4 +52,4 @@ jobs:
           board: ${{ matrix.BOARD }}
           flavor: ${{ matrix.FLAVOR }}
           release-id: ${{ needs.prepare_release.outputs.release_id }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.workflow_token }}
