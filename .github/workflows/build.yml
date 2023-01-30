@@ -34,8 +34,8 @@ jobs:
       matrix:
         boards: [rock-5b]
         build_systems: [rbuild, armbian]
-        distros: [debian, ubuntu]
-        flavors: [kde, cli]
+        distros: [debian]
+        flavors: [cli]
         exclude:
           - build_systems: debos
             distros: debian
